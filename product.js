@@ -26,12 +26,12 @@ const removeProduct = (productId) => {
     if (index === -1) {
         throw new Error('product not found');
     }
-    products.splice(index, 1); // método splice(indice desde donde empieza, cuantos elementos elimina) MODIFICA EL ARRAY ORIGINAL
+    // filter mejor que splice porque splice modifica el índice (coste de energía y genera errores)
+    products = products.filter(p => p.id !==productId)
 }
 
-const getProducts = () => {
-    return products;
-}
+const getProducts = () => products;
+
 
 const getProduct = (productId) => {
     const product = products.find(product => product.id === productId);

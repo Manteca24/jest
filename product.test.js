@@ -7,6 +7,7 @@ beforeEach(() => {
 describe('products management', () => {
     it('should add a product', () => {
         addProduct('item1', 10);
+        // expect(()=> addProduct('laptop', 100).not.toThrow())
         const products = getProducts();
         expect(products.length).toBe(1);
         expect(products[0]).toEqual({ id: 1, name: 'item1', price: 10 });
